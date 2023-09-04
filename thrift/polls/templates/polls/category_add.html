@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Category_Add</title>
+
+</head>
+<body>
+</div>
+
+    <header>Category_Add</header>
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="field category">
+            <div class="input-area">
+                <input type = "text" placeholder="category" name="cat">
+                       <i class="icon fas fa-envelope"></i>
+            </div>
+        </div>
+        <button type="submit" >Add</button>
+    </form>
+
+</body>
+</html>

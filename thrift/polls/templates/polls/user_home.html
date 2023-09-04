@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+<link rel="Stylesheet" href="style.css">
+<link href="{% static './polls/css/adminhome.css' %}" rel="stylesheet">
+    <link rel="stylesheet"  href="{% static './polls/css/register.css' %}">
+</head>
+<body>
+
+
+<div class="wrapper">
+    <nav>
+
+      <div class="content">
+      <div class="logo"><a href="#">Thrift store</a></div>
+        <ul class="links">
+          <li><a href="logout">Logout</a></li>
+            <li><a class="nav-link" href="{% url 'user_details_update' %}"> User Profile</a></li>
+            <li><a class="nav-link" href="{% url 'user_product_view' %}"> Product</a></li>
+
+
+        </ul>
+      </div>
+    <div class="content">
+<h1 style="color:red">{{ uname }}</h1>
+
+    </div>
+    </nav>
+
+</div>
+</div>
+
+
+
+<script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+</body>
+
+</html>

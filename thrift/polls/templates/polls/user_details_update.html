@@ -1,0 +1,82 @@
+
+{% load static %}
+{% block title %}User Details{% endblock %}
+{% block background %}{% endblock %}
+{% block body %}
+<center>
+	<br>
+    <h2 style="color:maroon"><b>User Details</b></h2>
+	<div style="color:Blue Jay" class="container">
+		<link rel="stylesheet"  href="{% static './polls/css/register.css' %}">
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <form role="form" name="frm" action="{% url 'user_details_update' %}" method="post">
+        {% csrf_token %}
+        <div style="color:maroon" class="form-group">
+			<label for="fname"><b>Fname </b></label>
+	        <input  class="form-control" type="text"  id="fname" name="fname" onkeypress="return allowOnlyLetters(event,this);"  style="width: 25%;" value="{{up.fname}}" required="required">
+			<label for="fname"><b>Lname</b></label>
+			<input class="form-control" type="text"  id="lname" name="lname" onkeypress="return allowOnlyLetters(event,this);"  style="width: 25%;" value="{{up.lname}}" required="required">
+		</div>
+	    <div style="color:Rogue Pink" class="form-group">
+			<label  for="housename"><b>House name</b></label>
+	        <input class="form-control" type="text"  id="housename" name="housename" style="width: 25%;" value="{{up.housename}}" placeholder="Street" >
+			<label  for="pin"><b>PIN</b></label>
+			<input type="text"  class="form-control" id="pin" name="pin" onkeypress="return isNumberKey(event,this)" maxlength="6" style="width: 25%;" value="{{up.pin}}" >
+		</div>
+	    <div class="form-group">
+			<label for="phoneno"><b>Contact</b></label>
+	        <input type="text"  class="form-control" id="phoneno" name="phoneno" onkeypress="return isNumberKey(event,this)" maxlength="10" style="width: 25%;" value="{{up.phoneno}}">
+		</div>
+		<div class="form-group">
+			<label for="street"><b>Street</b></label>
+	        <input type="text"  class="form-control" id="street" name="street"  style="width: 500px;" value="{{up.street}}">
+		</div>
+		<div class="form-group">
+			<label for="city"><b>City</b></label>
+	        <input type="text"  class="form-control" id="city" name="city"  style="width: 500px;" value="{{up.city}}">
+		</div>
+
+		<button type="submit" class="btn btn-primary" id="bt" name="bt">Update</button>
+        <button type="reset" class="btn btn-info" id="rt" name="rt">Reset</button>
+	    </table>
+    </form>
+	{{msg}}
+	</div>
+</center>
+
+<script language="Javascript" type="text/javascript">
+
+function allowOnlyLetters(e, t)
+{
+   if (window.event)
+   {
+      var charCode = window.event.keyCode;
+   }
+   else if (e)
+   {
+      var charCode = e.which;
+   }
+   else { return true; }
+   if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))
+       return true;
+   else
+   {
+      alert("Please enter only alphabets");
+      return false;
+   }
+}
+function isNumberKey(evt, obj) {
+
+            var charCode = (evt.which) ? evt.which : event.keyCode
+            var value = obj.value;
+            var dotcontains = value.indexOf(".") != -1;
+            if (dotcontains)
+                if (charCode == 46) return false;
+            if (charCode == 46) return true;
+            if (charCode > 31 && (charCode < 48 || charCode > 57))
+                return false;
+            return true;
+        }
+
+</script>
+{%endblock%}

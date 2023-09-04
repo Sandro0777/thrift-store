@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Productadd</title>
+
+
+</head>
+<body>
+
+<div class="wrapper">
+</div>
+    <header>Update Product</header>
+      <form  action="" method="post" enctype="multipart/form-data">
+
+        {% csrf_token %}
+        <div class="field product">
+            <div class="input-area">
+                <h4>Product name </h4>
+                <input type="text" placeholder="product" value="{{up.product_name}}" name="product">
+                <i class="icon fas fa-envelope"></i>
+            </div>
+        </div>
+
+          <div class="field quantity">
+              <div class="input area">
+                  <input type="number"  placeholder="quantity" value="{{up.quantity}}" min="1" title="Enter quantity above 0" name="quantity",required>
+                  <i class="icon fas fa-envelope"></i>
+              </div>
+          </div>
+
+
+          <div class="field size">
+              <div class="input area">
+                  <input type="varchar" placeholder="size"  value="{{up.size}}"   title="Enter size above 0" name="size",required>
+                  <i class="icon fas fa-envelope"></i>
+              </div>
+          </div>
+          <div class="field price">
+              <div class="input-area">
+                  <input type="number" placeholder="price" name="price" value="{{up.price}}" min="1" required title="Enter price above 0" ,required>
+                  <i class="icon fas fa-envelope"></i>
+              </div>
+          </div>
+          <div class="field description">
+              <div class="input-area">
+                  <input type="text" placeholder="description" value="{{up.product_desc}}" name="description">
+                  <i class="icon fas fa-envelope"></i>
+              </div>
+          </div>
+          <div class="input-group">
+			<label>UPLOAD IMAGE</label>
+			<input type="file" name="image" id="img">
+		</div>
+
+
+
+          <button type="submit" class=" btn btn-success mt-2" id="bt" name="bt" >update</button>
+          <input type="hidden" name="pid" value="{{up.id}}">
+      </form>
+
+
+
+</body>
+</html>

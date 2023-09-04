@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"  href="{% static './polls/css/register.css' %}">
+    <title>Login Form </title>
+</head>
+<body>
+  <div class="wrapper">
+      <div class="form">
+          <header>Login</header>
+
+
+          <form method="POST" action="{% url 'login' %}">
+              {% csrf_token %}
+
+              <div class="field email">
+                  <div class="input-area">
+                      <input type="email" name="username" placeholder="Email">
+                      <i class="icon fas fa-envelope"></i>
+                  </div>
+              </div>
+
+              <div class="field password">
+                  <div class="input-area">
+                      <input type="password" name="password" pattern="(?=.[a-z])(?=.*[A-Z]).{8,}" placeholder="Password">
+                      <i class="icon fas fa-lock"></i>
+                  </div>
+              </div>
+
+              <input type="submit" value="Login">
+          </form>
+
+                        New user? <a href='registration'>Register here</a>
+      </div>
+  </div>
+</body>
+</html>
